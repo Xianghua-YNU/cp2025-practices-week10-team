@@ -32,8 +32,8 @@ def simpson(f, a, b, N):
     :param N: 子区间数（必须为偶数）
     :return: 积分近似值
     """
-    if N%2 !=0:
-    	print('Simpson法则积分函数要确保N为偶数')
+    if N % 2 != 0:
+        raise ValueError("Simpson 法则要求 N 必须为偶数")
     h = (b - a) / N
     x = np.linspace(a, b, N+1)
     return h/3*(f(x)[0] + 4*np.sum(f(x)[1:N:2]) + 2*np.sum(f(x)[2:N:2]) + f(x)[N])
